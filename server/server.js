@@ -5,6 +5,13 @@ const connectDB = require('./config/db');
 const { initSocket } = require('./config/socket');
 const scheduledPostsJob = require('./jobs/scheduledPosts.job');
 
+// Validate required environment variables
+if (!process.env.MONGODB_URI) {
+  console.error('❌ MONGODB_URI environment variable is not set!');
+  console.error('Available env vars:', Object.keys(process.env).filter(k => !k.includes('SECRET')));
+  process.exit(1);
+}
+
 const PORT = process.env.PORT || 5000;
 
 // Create HTTP server

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "cd server && node server.js",
-    "build": "cd server && npm install"
+    "install": "cd server && npm install"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
